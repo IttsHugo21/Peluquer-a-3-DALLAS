@@ -14,9 +14,13 @@
         .gold-text { color: #d4af37; }
         .bg-dark-900 { background-color: #0a0a0a; }
         
-        /* Imagen Hero optimizada para GitHub Pages (CDN global) */
+        /* Respaldo de color si la imagen falla */
+        .img-fallback { background-color: #1a1a1a; position: relative; }
+        
+        /* Imagen Hero con URL de alta disponibilidad */
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1920&auto=format&fit=crop');
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                        url('https://loremflickr.com/1920/1080/barbershop,interior') #1a1a1a;
             background-size: cover;
             background-position: center;
         }
@@ -25,7 +29,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 1rem;
-            background: #1a1a1a;
+            background: #111; /* Fondo negro por si la imagen tarda en cargar */
             aspect-ratio: 3/4;
         }
 
@@ -34,6 +38,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease, filter 0.5s ease;
+            display: block;
         }
 
         .img-box:hover img {
@@ -44,18 +49,18 @@
 </head>
 <body class="bg-white text-gray-800">
 
-    <!-- Banner de Cookies (Primera Capa Informativa - Obligatorio) -->
+    <!-- Capa Legal: Cookies (Obligatorio) -->
     <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-black text-white p-5 z-50 border-t border-yellow-600 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="text-sm">
-            <p>Utilizamos cookies propias y de terceros para asegurar la mejor experiencia en nuestra web de barbería en Zaragoza. <a href="#" onclick="showLegal('cookies')" class="underline gold-text ml-1">Configuración y más información</a>.</p>
+            <p>Utilizamos cookies para garantizar que la web se vea correctamente y ofrecerte la mejor experiencia en nuestra peluquería de Zaragoza. <a href="#" onclick="showLegal('cookies')" class="underline gold-text ml-1">Más información</a>.</p>
         </div>
         <div class="flex gap-3">
-            <button onclick="acceptCookies()" class="bg-yellow-600 hover:bg-yellow-500 text-black px-6 py-2 rounded font-bold uppercase text-xs transition">Aceptar todo</button>
+            <button onclick="acceptCookies()" class="bg-yellow-600 hover:bg-yellow-500 text-black px-6 py-2 rounded font-bold uppercase text-xs transition">Entendido</button>
         </div>
     </div>
 
     <!-- Navegación -->
-    <nav class="fixed w-full z-40 bg-black text-white px-6 py-4 flex justify-between items-center border-b border-yellow-600/20">
+    <nav class="fixed w-full z-40 bg-black text-white px-6 py-4 flex justify-between items-center border-b border-yellow-600/20 shadow-lg">
         <div class="text-2xl font-bold gold-text tracking-widest uppercase italic">Dallas</div>
         <div class="hidden md:flex space-x-8 uppercase text-[10px] font-bold tracking-[0.2em]">
             <a href="#inicio" class="hover:text-yellow-500 transition">Inicio</a>
@@ -63,49 +68,49 @@
             <a href="#galeria" class="hover:text-yellow-500 transition">Galería</a>
             <a href="#contacto" class="hover:text-yellow-500 transition">Contacto</a>
         </div>
-        <a href="tel:976022960" class="gold-gradient text-black px-5 py-2 rounded-full text-[10px] font-black flex items-center gap-2 uppercase tracking-tighter">
+        <a href="tel:976022960" class="gold-gradient text-black px-5 py-2 rounded-full text-[10px] font-black flex items-center gap-2 uppercase tracking-tighter shadow-md">
             <i class="fas fa-phone"></i> 976 02 29 60
         </a>
     </nav>
 
     <!-- Sección Hero -->
-    <section id="inicio" class="hero-bg h-[90vh] flex items-center justify-center text-center px-4 pt-20">
+    <section id="inicio" class="hero-bg h-[95vh] flex items-center justify-center text-center px-4 pt-20">
         <div class="max-w-4xl">
-            <h1 class="text-5xl md:text-8xl text-white mb-4 uppercase tracking-tighter italic font-black">Peluquería Dallas</h1>
-            <p class="text-lg md:text-xl text-yellow-500 mb-10 font-light tracking-[0.3em] uppercase">Barbería de Autor en el corazón de Zaragoza</p>
-            <a href="#contacto" class="border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-black px-10 py-4 transition-all duration-300 font-bold tracking-widest text-xs inline-block uppercase">Solicitar Cita</a>
+            <h1 class="text-6xl md:text-9xl text-white mb-4 uppercase tracking-tighter italic font-black drop-shadow-2xl">Dallas</h1>
+            <p class="text-lg md:text-2xl text-yellow-500 mb-10 font-light tracking-[0.4em] uppercase">Peluquería Masculina & Barbería</p>
+            <a href="#contacto" class="border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-black px-10 py-4 transition-all duration-300 font-bold tracking-widest text-xs inline-block uppercase bg-black/50 backdrop-blur-sm">Reservar Cita</a>
         </div>
     </section>
 
-    <!-- Galería con Imágenes con CDN de Alta Disponibilidad -->
-    <section id="galeria" class="py-24 bg-gray-50">
+    <!-- Galería: Uso de LoremFlickr para máxima compatibilidad con GitHub -->
+    <section id="galeria" class="py-24 bg-gray-100">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="gold-text uppercase tracking-widest text-xs font-bold">Nuestro Arte</span>
-                <h2 class="text-4xl md:text-5xl font-bold mt-2 italic">Trabajos Recientes</h2>
+                <span class="gold-text uppercase tracking-widest text-xs font-bold">Nuestra Calidad</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-2 italic">Galería de Trabajos</h2>
                 <div class="h-1 w-20 gold-gradient mx-auto mt-6"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Imagen 1: Corte Moderno -->
-                <div class="img-box shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop" alt="[Imagen de Corte de pelo masculino moderno]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                        <span class="text-white font-bold uppercase text-xs tracking-widest">Corte & Estilo</span>
+                <!-- Imagen 1: Corte de pelo moderno -->
+                <div class="img-box shadow-2xl">
+                    <img src="https://loremflickr.com/800/1066/haircut,man?lock=1" alt="[Corte de pelo moderno en Zaragoza]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white font-bold uppercase text-xs tracking-widest">Corte Moderno</span>
                     </div>
                 </div>
-                <!-- Imagen 2: Perfilado de Barba -->
-                <div class="img-box shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1621605815841-aa88c80b00d0?q=80&w=800&auto=format&fit=crop" alt="[Imagen de Perfilado de barba profesional]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                        <span class="text-white font-bold uppercase text-xs tracking-widest">Barbería Premium</span>
+                <!-- Imagen 2: Perfilado de barba -->
+                <div class="img-box shadow-2xl">
+                    <img src="https://loremflickr.com/800/1066/beard,grooming?lock=2" alt="[Perfilado de barba profesional]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white font-bold uppercase text-xs tracking-widest">Barbería Elite</span>
                     </div>
                 </div>
-                <!-- Imagen 3: Acabado Peluquería -->
-                <div class="img-box shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1599351431247-f10b21ce536d?q=80&w=800&auto=format&fit=crop" alt="[Imagen de Acabado de peluquería premium]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                        <span class="text-white font-bold uppercase text-xs tracking-widest">Estética Masculina</span>
+                <!-- Imagen 3: Estilo y acabado -->
+                <div class="img-box shadow-2xl">
+                    <img src="https://loremflickr.com/800/1066/barber,style?lock=3" alt="[Acabado de peluquería caballero]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white font-bold uppercase text-xs tracking-widest">Estilo Dallas</span>
                     </div>
                 </div>
             </div>
@@ -115,101 +120,107 @@
     <!-- Servicios -->
     <section id="servicios" class="py-24 bg-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-16 italic">Servicios Especializados</h2>
+            <h2 class="text-4xl font-bold mb-16 italic">Especialistas en Tí</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                 <div class="group">
-                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 transition-transform group-hover:scale-110">
+                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:rotate-12 transition">
                         <i class="fas fa-cut text-black text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2 uppercase italic">Corte Caballero</h3>
-                    <p class="text-gray-500 text-sm">Asesoramiento personalizado según tus facciones y tipo de cabello.</p>
+                    <h3 class="font-bold text-lg mb-2 uppercase italic">Corte</h3>
+                    <p class="text-gray-500 text-sm">Degradados y cortes clásicos con precisión milimétrica.</p>
                 </div>
                 <div class="group">
-                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 transition-transform group-hover:scale-110">
+                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:rotate-12 transition">
                         <i class="fas fa-razor text-black text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2 uppercase italic">Afeitado Navaja</h3>
-                    <p class="text-gray-500 text-sm">Ritual tradicional con toallas calientes y productos de barbería clásica.</p>
+                    <h3 class="font-bold text-lg mb-2 uppercase italic">Barba</h3>
+                    <p class="text-gray-500 text-sm">Ritual de afeitado con navaja y tratamiento de vapor.</p>
                 </div>
                 <div class="group">
-                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 transition-transform group-hover:scale-110">
+                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:rotate-12 transition">
                         <i class="fas fa-tint text-black text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2 uppercase italic">Coloración</h3>
-                    <p class="text-gray-500 text-sm">Matices naturales para canas o cambios de estilo vanguardistas.</p>
+                    <h3 class="font-bold text-lg mb-2 uppercase italic">Color</h3>
+                    <p class="text-gray-500 text-sm">Matización de canas y colores modernos para hombre.</p>
                 </div>
                 <div class="group">
-                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 transition-transform group-hover:scale-110">
-                        <i class="fas fa-user-check text-black text-2xl"></i>
+                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:rotate-12 transition">
+                        <i class="fas fa-user-shield text-black text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2 uppercase italic">Tratamientos</h3>
-                    <p class="text-gray-500 text-sm">Hidratación capilar profunda y masajes relajantes.</p>
+                    <h3 class="font-bold text-lg mb-2 uppercase italic">Cuidado</h3>
+                    <p class="text-gray-500 text-sm">Tratamientos anticaída y salud del cuero cabelludo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto y Mapa -->
+    <!-- Contacto y Ubicación -->
     <section id="contacto" class="py-24 bg-dark-900 text-white">
         <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-                <h2 class="text-4xl font-bold mb-8 italic">Ubicación y Citas</h2>
-                <div class="space-y-6">
-                    <div class="flex items-center gap-4">
-                        <i class="fas fa-map-marker-alt gold-text text-xl w-8"></i>
-                        <p class="text-gray-300 uppercase text-xs tracking-widest">C. Juan José Lorente, 24, 50005 Zaragoza</p>
+                <h2 class="text-4xl font-bold mb-8 italic">¿Dónde encontrarnos?</h2>
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-map-marker-alt gold-text text-2xl mt-1"></i>
+                        <div>
+                            <p class="text-white font-bold uppercase tracking-widest">Dirección</p>
+                            <p class="text-gray-400 text-sm uppercase">C. Juan José Lorente, 24, 50005 Zaragoza</p>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-4">
-                        <i class="fas fa-phone-alt gold-text text-xl w-8"></i>
-                        <a href="tel:976022960" class="text-xl font-bold gold-text">976 02 29 60</a>
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-phone-alt gold-text text-2xl mt-1"></i>
+                        <div>
+                            <p class="text-white font-bold uppercase tracking-widest">Citas</p>
+                            <a href="tel:976022960" class="text-2xl font-black gold-text">976 02 29 60</a>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-4">
-                        <i class="fas fa-clock gold-text text-xl w-8"></i>
-                        <p class="text-gray-300 text-xs uppercase tracking-widest">Lun - Sáb: 09:30 – 22:00 (Domingos Cerrado)</p>
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-clock gold-text text-2xl mt-1"></i>
+                        <div>
+                            <p class="text-white font-bold uppercase tracking-widest">Horario</p>
+                            <p class="text-gray-400 text-sm uppercase">Lun - Sáb: 09:30 – 22:00</p>
+                        </div>
                     </div>
-                </div>
-                <div class="mt-10 p-6 border border-yellow-600/30 rounded-xl bg-white/5">
-                    <h4 class="gold-text font-bold mb-2 italic tracking-widest uppercase text-xs">Aviso de Servicio</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">Recomendamos reservar con antelación para garantizar su espacio y ofrecerle un servicio sin prisas.</p>
                 </div>
             </div>
-            <div class="h-[400px] rounded-2xl overflow-hidden shadow-2xl border-2 border-yellow-600/20 grayscale hover:grayscale-0 transition duration-1000">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.428!2d-0.8973!3d41.6464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd59149495555555%3A0x6e6e6e6e6e6e6e6e!2sC.%20de%20Juan%20Jos%C3%A9%20Lorente%2C%2024%2C%2050005%20Zaragoza!5e0!3m2!1ses!2ses!4v1711360000000" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+            <div class="h-[450px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/5 grayscale hover:grayscale-0 transition duration-1000">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.4284564883546!2d-0.8973059234125964!3d41.64640167923306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd59149495555555%3A0x6e6e6e6e6e6e6e6e!2sC.%20de%20Juan%20Jos%C3%A9%20Lorente%2C%2024%2C%2050005%20Zaragoza!5e0!3m2!1ses!2ses!4v1711360000000" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- Footer con Secciones Legales -->
-    <footer class="bg-black text-white py-12 border-t border-white/5">
+    <!-- Footer Legal -->
+    <footer class="bg-black text-white py-16 border-t border-yellow-600/10">
         <div class="container mx-auto px-6 text-center">
-            <h3 class="text-2xl font-black gold-text mb-8 tracking-[0.4em] uppercase italic">Dallas</h3>
-            <div class="flex flex-wrap justify-center gap-x-10 gap-y-4 mb-8 text-[10px] uppercase font-bold tracking-[0.2em] text-gray-500">
+            <h3 class="text-3xl font-black gold-text mb-10 tracking-[0.5em] uppercase italic">Dallas</h3>
+            <div class="flex flex-wrap justify-center gap-x-12 gap-y-4 mb-10 text-[11px] uppercase font-bold tracking-[0.2em] text-gray-500">
                 <a href="#" onclick="showLegal('aviso')" class="hover:text-yellow-500 transition">Aviso Legal</a>
-                <a href="#" onclick="showLegal('privacidad')" class="hover:text-yellow-500 transition">Política de Privacidad</a>
-                <a href="#" onclick="showLegal('cookies')" class="hover:text-yellow-500 transition">Política de Cookies</a>
+                <a href="#" onclick="showLegal('privacidad')" class="hover:text-yellow-500 transition">Privacidad</a>
+                <a href="#" onclick="showLegal('cookies')" class="hover:text-yellow-500 transition">Cookies</a>
             </div>
-            <p class="text-gray-700 text-[9px] tracking-widest uppercase">&copy; 2024 Peluquería Dallas Zaragoza. Estilo y Tradición Masculina.</p>
+            <p class="text-gray-800 text-[10px] tracking-widest uppercase">&copy; 2024 Peluquería Dallas Zaragoza. Tu estilo, nuestra firma.</p>
         </div>
     </footer>
 
-    <!-- Modal Legal -->
-    <div id="legal-modal" class="fixed inset-0 bg-black/95 z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-xl max-w-xl w-full p-8 relative overflow-y-auto max-h-[85vh] shadow-2xl">
-            <button onclick="closeLegal()" class="absolute top-4 right-4 text-gray-400 hover:text-black transition"><i class="fas fa-times text-xl"></i></button>
-            <div id="legal-content" class="text-sm text-gray-700 space-y-4 leading-relaxed"></div>
+    <!-- Ventana Modal para Leyes -->
+    <div id="legal-modal" class="fixed inset-0 bg-black/95 z-50 flex items-center justify-center hidden p-6 backdrop-blur-md">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-10 relative overflow-y-auto max-h-[80vh] shadow-2xl">
+            <button onclick="closeLegal()" class="absolute top-6 right-6 text-gray-400 hover:text-black transition text-2xl"><i class="fas fa-times"></i></button>
+            <div id="legal-content" class="text-sm text-gray-700 space-y-5 leading-relaxed"></div>
         </div>
     </div>
 
     <script>
         function acceptCookies() { 
-            document.getElementById('cookie-banner').style.display = 'none';
+            document.getElementById('cookie-banner').style.opacity = '0';
+            setTimeout(() => document.getElementById('cookie-banner').style.display = 'none', 500);
         }
         
         function showLegal(type) {
             const content = {
-                aviso: '<h4 class="text-xl font-bold mb-4 italic">Aviso Legal</h4><p>La titularidad de este sitio web corresponde a Peluquería Dallas con domicilio profesional en C. Juan José Lorente, 24, Zaragoza. Los contenidos aquí mostrados son meramente informativos sobre los servicios de barbería ofrecidos en el establecimiento físico.</p>',
-                privacidad: '<h4 class="text-xl font-bold mb-4 italic">Privacidad</h4><p>En cumplimiento de la normativa vigente, le informamos que no recolectamos datos personales de forma automatizada a través de esta web. Cualquier dato facilitado telefónicamente para citas se utiliza exclusivamente para la gestión del servicio solicitado.</p>',
-                cookies: '<h4 class="text-xl font-bold mb-4 italic">Política de Cookies</h4><p>Este sitio web utiliza cookies propias necesarias para la correcta navegación y visualización del mapa de ubicación, así como cookies analíticas para mejorar nuestra presencia digital. Puede restringir el uso de cookies en la configuración de su navegador.</p>'
+                aviso: '<h4 class="text-2xl font-bold mb-4 italic gold-text">Aviso Legal</h4><p>Peluquería Dallas, situada en C. Juan José Lorente, 24, 50005 Zaragoza, es la responsable de esta web informativa. El uso de esta página implica la aceptación de las condiciones de uso.</p>',
+                privacidad: '<h4 class="text-2xl font-bold mb-4 italic gold-text">Política de Privacidad</h4><p>No recopilamos datos personales a través de esta web de forma automática. Los datos que nos facilitas por teléfono para agendar tu cita son tratados exclusivamente para la gestión de la misma y nunca se comparten con terceros.</p>',
+                cookies: '<h4 class="text-2xl font-bold mb-4 italic gold-text">Configuración de Cookies</h4><p>Usamos cookies técnicas para que la web funcione (como el mapa de Google) y cookies de análisis para entender qué secciones te gustan más de nuestra peluquería en Zaragoza. Puedes desactivarlas en los ajustes de tu navegador.</p>'
             };
             document.getElementById('legal-content').innerHTML = content[type];
             document.getElementById('legal-modal').classList.remove('hidden');
@@ -220,6 +231,13 @@
             document.getElementById('legal-modal').classList.add('hidden'); 
             document.body.style.overflow = 'auto';
         }
+
+        // Corrección de visualización: Si una imagen falla por bloqueo de red, cargar un color de respaldo
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function() {
+                this.src = 'https://placehold.jp/24/1a1a1a/d4af37/600x800.png?text=Imagen+Dallas';
+            };
+        });
     </script>
 </body>
 </html>
