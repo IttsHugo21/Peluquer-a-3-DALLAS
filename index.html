@@ -14,9 +14,9 @@
         .gold-text { color: #d4af37; }
         .bg-dark-900 { background-color: #0a0a0a; }
         
-        /* Imagen Hero con generador dinámico estable */
+        /* Imagen Hero optimizada para GitHub Pages (CDN global) */
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://placehold.jp/40/1a1a1a/d4af37/1200x800.png?text=PELUQUER%C3%8DA+DALLAS+ZARAGOZA');
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
         }
@@ -25,7 +25,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 1rem;
-            background: #e5e5e5;
+            background: #1a1a1a;
             aspect-ratio: 3/4;
         }
 
@@ -33,20 +33,21 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s ease, filter 0.5s ease;
         }
 
         .img-box:hover img {
             transform: scale(1.1);
+            filter: brightness(1.1);
         }
     </style>
 </head>
 <body class="bg-white text-gray-800">
 
-    <!-- Banner de Cookies (Capa Obligatoria) -->
+    <!-- Banner de Cookies (Primera Capa Informativa - Obligatorio) -->
     <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-black text-white p-5 z-50 border-t border-yellow-600 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="text-sm">
-            <p>Utilizamos cookies propias y de terceros para mejorar su experiencia y analizar el tráfico. <a href="#" onclick="showLegal('cookies')" class="underline gold-text ml-1">Configuración y más información</a>.</p>
+            <p>Utilizamos cookies propias y de terceros para asegurar la mejor experiencia en nuestra web de barbería en Zaragoza. <a href="#" onclick="showLegal('cookies')" class="underline gold-text ml-1">Configuración y más información</a>.</p>
         </div>
         <div class="flex gap-3">
             <button onclick="acceptCookies()" class="bg-yellow-600 hover:bg-yellow-500 text-black px-6 py-2 rounded font-bold uppercase text-xs transition">Aceptar todo</button>
@@ -71,12 +72,12 @@
     <section id="inicio" class="hero-bg h-[90vh] flex items-center justify-center text-center px-4 pt-20">
         <div class="max-w-4xl">
             <h1 class="text-5xl md:text-8xl text-white mb-4 uppercase tracking-tighter italic font-black">Peluquería Dallas</h1>
-            <p class="text-lg md:text-xl text-yellow-500 mb-10 font-light tracking-[0.3em] uppercase">Excelencia en Barbería Tradicional en Zaragoza</p>
+            <p class="text-lg md:text-xl text-yellow-500 mb-10 font-light tracking-[0.3em] uppercase">Barbería de Autor en el corazón de Zaragoza</p>
             <a href="#contacto" class="border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-black px-10 py-4 transition-all duration-300 font-bold tracking-widest text-xs inline-block uppercase">Solicitar Cita</a>
         </div>
     </section>
 
-    <!-- Galería con Imágenes de Visualización Garantizada -->
+    <!-- Galería con Imágenes con CDN de Alta Disponibilidad -->
     <section id="galeria" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
@@ -86,23 +87,23 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Imagen 1: Corte -->
+                <!-- Imagen 1: Corte Moderno -->
                 <div class="img-box shadow-xl">
-                    <img src="https://placehold.jp/30/1a1a1a/ffffff/600x800.png?text=Corte+Degradado+Dallas" alt="[Imagen de Corte de pelo masculino moderno]">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop" alt="[Imagen de Corte de pelo masculino moderno]">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
                         <span class="text-white font-bold uppercase text-xs tracking-widest">Corte & Estilo</span>
                     </div>
                 </div>
-                <!-- Imagen 2: Barba -->
+                <!-- Imagen 2: Perfilado de Barba -->
                 <div class="img-box shadow-xl">
-                    <img src="https://placehold.jp/30/d4af37/000000/600x800.png?text=Perfilado+de+Barba" alt="[Imagen de Perfilado de barba profesional]">
+                    <img src="https://images.unsplash.com/photo-1621605815841-aa88c80b00d0?q=80&w=800&auto=format&fit=crop" alt="[Imagen de Perfilado de barba profesional]">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
                         <span class="text-white font-bold uppercase text-xs tracking-widest">Barbería Premium</span>
                     </div>
                 </div>
-                <!-- Imagen 3: Acabado -->
+                <!-- Imagen 3: Acabado Peluquería -->
                 <div class="img-box shadow-xl">
-                    <img src="https://placehold.jp/30/222222/d4af37/600x800.png?text=Acabado+Profesional" alt="[Imagen de Acabado de peluquería premium]">
+                    <img src="https://images.unsplash.com/photo-1599351431247-f10b21ce536d?q=80&w=800&auto=format&fit=crop" alt="[Imagen de Acabado de peluquería premium]">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
                         <span class="text-white font-bold uppercase text-xs tracking-widest">Estética Masculina</span>
                     </div>
